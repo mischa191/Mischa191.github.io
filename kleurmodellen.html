@@ -119,105 +119,38 @@
 
   <h2>Kleurmodellen</h2>
   <p>
-    Een computer kan geen "kleur" opslaan zoals wij die zien. Alles moet als getallen
-    (uiteindelijk bits) worden vastgelegd. Een <b>kleurmodel</b> is een afspraak over hoe je
-    een kleur met getallen beschrijft. Welk model je gebruikt, hangt af van wat je wilt doen:
-    weergeven op een scherm, afdrukken op papier, of kleuren aanpassen als ontwerper.
+    Een computer slaat kleuren op als getallen. Een <b>kleurmodel</b> is een manier om een
+    kleur met getallen te beschrijven. Er zijn twee belangrijke modellen: RGB voor schermen
+    en CMYK voor drukwerk.
   </p>
 
-  <h3>1. Additief en subtractief mengen</h3>
+  <h3>RGB (rood, groen, blauw)</h3>
   <p>
-    Bij <b>additief</b> mengen tel je licht bij elkaar op. Je begint met zwart (geen licht) en
-    voegt licht toe: hoe meer licht, hoe lichter het resultaat. Dit gebeurt bij schermen.
-    Bij <b>subtractief</b> mengen begin je met wit papier en haal je licht weg met inkt of verf:
-    elke laag inkt absorbeert een deel van het licht, dus hoe meer inkt, hoe donkerder het
-    resultaat. Dit gebeurt bij drukwerk.
+    RGB gebruik je voor schermen, zoals een telefoon of computer. Een scherm maakt kleuren door
+    rood, groen en blauw licht te mengen. Dit heet <b>additief</b> mengen: je telt licht bij
+    elkaar op.
   </p>
-
-  <h3>2. RGB (rood, groen, blauw)</h3>
   <p>
-    RGB is een additief model en wordt gebruikt voor beeldschermen, camera's en websites.
-    Een pixel bestaat uit drie lichtpuntjes: rood, groen en blauw. De kleur ontstaat door de
-    intensiteit van elk kanaal te kiezen.
+    Rood, groen en blauw hebben elk een waarde van 0 tot en met 255:
   </p>
   <p>
     <span class="vakje" style="background-color: rgb(255,0,0);"></span> rood = (255, 0, 0)<br>
-    <span class="vakje" style="background-color: rgb(0,255,0);"></span> groen = (0, 255, 0)<br>
-    <span class="vakje" style="background-color: rgb(0,0,255);"></span> blauw = (0, 0, 255)<br>
-    <span class="vakje" style="background-color: rgb(255,255,0);"></span> geel = (255, 255, 0), want rood + groen<br>
-    <span class="vakje" style="background-color: rgb(255,255,255);"></span> wit = (255, 255, 255), alle kanalen vol<br>
-    <span class="vakje" style="background-color: rgb(0,0,0);"></span> zwart = (0, 0, 0), geen licht
+    <span class="vakje" style="background-color: rgb(255,255,0);"></span> geel = (255, 255, 0)<br>
+    <span class="vakje" style="background-color: rgb(255,255,255);"></span> wit = (255, 255, 255)<br>
+    <span class="vakje" style="background-color: rgb(0,0,0);"></span> zwart = (0, 0, 0)
+  </p>
+  <p>
+    Een waarde van 0 tot en met 255 past in 8 bits (2<sup>8</sup> = 256 mogelijkheden). Met drie
+    kleuren is dat 3 × 8 = 24 bits per pixel. Het aantal kleuren is dan
+    256 × 256 × 256 = 2<sup>24</sup> = 16.777.216.
   </p>
 
-  <h3>Kleurdiepte en het aantal kleuren</h3>
+  <h3>CMYK (cyaan, magenta, geel, zwart)</h3>
   <p>
-    Meestal gebruikt men <b>8 bits per kanaal</b>. Met 8 bits kun je 2<sup>8</sup> = 256
-    waarden opslaan (0 tot en met 255). Omdat er drie kanalen zijn, heb je 24 bits per pixel
-    (<b>24-bit kleur</b>, ook wel "true color"). Het aantal mogelijke kleuren is dan:
-  </p>
-  <p>
-    256 × 256 × 256 = 2<sup>24</sup> = 16.777.216 kleuren
-  </p>
-  <p>
-    Algemeen geldt: bij <i>n</i> bits per pixel kun je 2<sup><i>n</i></sup> kleuren
-    onderscheiden. Meer bits geeft dus meer kleuren, maar ook een groter bestand. Een afbeelding
-    van 1920 × 1080 pixels met 24 bits per pixel is 1920 × 1080 × 24 = 49.766.400 bits, ofwel
-    ongeveer 6,2 MB (ongecomprimeerd).
-  </p>
-
-  <h3>Hexadecimale kleurcodes</h3>
-  <p>
-    In HTML en CSS schrijf je RGB vaak hexadecimaal, in de vorm <code>#RRGGBB</code>. Elk kanaal
-    krijgt twee hexadecimale cijfers (00 tot en met FF, dat is 0 tot en met 255 decimaal).
-    Voorbeeld: <code>#FF8000</code> betekent R = FF = 255, G = 80 = 128 en B = 00 = 0.
-    Dat is oranje.
-  </p>
-  <p>
-    <span class="vakje" style="background-color: #FF8000;"></span> <code>#FF8000</code> = rgb(255, 128, 0)
-  </p>
-
-  <h3>Alfakanaal (RGBA)</h3>
-  <p>
-    Soms komt er een vierde kanaal bij: de <b>alfawaarde</b>, die de doorzichtigheid
-    (transparantie) aangeeft. Met 8 bits extra wordt dit 32 bits per pixel. Formaten zoals PNG
-    kunnen transparantie opslaan.
-  </p>
-
-  <h3>3. CMYK (cyaan, magenta, geel, zwart)</h3>
-  <p>
-    CMYK is een subtractief model voor drukwerk. Een printer gebruikt inkt in de kleuren cyaan,
-    magenta en geel (Yellow), plus zwart. De waarden geef je meestal in procenten aan
-    (0% tot 100% van elke inkt).
-  </p>
-  <p>
-    Waarom is er een aparte zwarte inkt (de K van <i>key</i>)? In theorie geeft cyaan +
-    magenta + geel samen zwart, maar in de praktijk wordt dat een vies donkerbruin. Daarnaast is
-    zwarte inkt goedkoper, en tekst in zwart is scherper als het uit één inkt bestaat.
-  </p>
-
-  <h3>4. HSL en HSV (tint, verzadiging, helderheid)</h3>
-  <p>
-    RGB en CMYK zijn handig voor apparaten, maar minder voor mensen: het is lastig om te
-    bedenken welke RGB-waarden je nodig hebt voor "een iets lichtere, minder felle groene
-    kleur". Daarom bestaat HSL, dat een kleur beschrijft op een manier die dichter bij onze
-    waarneming ligt:
-  </p>
-  <ul>
-    <li><b>H (Hue, tint):</b> de kleur zelf, als hoek op een kleurencirkel van 0° tot 360°
-      (0° = rood, 120° = groen, 240° = blauw).</li>
-    <li><b>S (Saturation, verzadiging):</b> hoe zuiver de kleur is, van 0% (grijs) tot 100%
-      (volle kleur).</li>
-    <li><b>L (Lightness, helderheid):</b> van 0% (zwart) tot 100% (wit). Bij HSV heet dit
-      <b>V (Value)</b>.</li>
-  </ul>
-  <p>
-    <span class="vakje" style="background-color: hsl(120,100%,25%);"></span> hsl(120, 100%, 25%), donkergroen<br>
-    <span class="vakje" style="background-color: hsl(120,100%,50%);"></span> hsl(120, 100%, 50%), fel groen<br>
-    <span class="vakje" style="background-color: hsl(120,100%,75%);"></span> hsl(120, 100%, 75%), lichtgroen
-  </p>
-  <p>
-    Je ziet dat alleen de helderheid verandert en de tint gelijk blijft. Met HSL kun je zo
-    eenvoudig lichtere of donkerdere varianten van een kleur maken, wat lastig is in RGB.
+    CMYK gebruik je voor drukwerk. Een printer gebruikt inkt in vier kleuren: cyaan, magenta,
+    geel en zwart. Dit heet <b>subtractief</b> mengen: je begint met wit papier en elke laag
+    inkt haalt licht weg, dus het wordt donkerder. Er is aparte zwarte inkt omdat je met alleen
+    cyaan, magenta en geel geen mooi diep zwart krijgt.
   </p>
 
   <h3>Overzicht</h3>
@@ -225,35 +158,23 @@
     <tr>
       <th>Model</th>
       <th>Soort mengen</th>
-      <th>Toepassing</th>
-      <th>Waarden</th>
+      <th>Gebruikt voor</th>
     </tr>
     <tr>
       <td>RGB</td>
       <td>Additief (licht)</td>
-      <td>Schermen, camera's, websites</td>
-      <td>R, G, B: 0 tot 255</td>
+      <td>Schermen en websites</td>
     </tr>
     <tr>
       <td>CMYK</td>
       <td>Subtractief (inkt)</td>
       <td>Drukwerk</td>
-      <td>C, M, Y, K: 0% tot 100%</td>
-    </tr>
-    <tr>
-      <td>HSL / HSV</td>
-      <td>Beschrijving voor mensen</td>
-      <td>Ontwerpen, kleurkiezers</td>
-      <td>H: 0° tot 360°, S en L/V: 0% tot 100%</td>
     </tr>
   </table>
 
-  <h3>Let op: verschillen tussen scherm en print</h3>
   <p>
-    Niet alle kleuren die een scherm kan maken, kan een printer ook maken (en andersom). Het
-    bereik aan kleuren van een model heet het <b>gamut</b>. Het RGB-gamut van een scherm bevat
-    bijvoorbeeld heel felle blauwtinten die met CMYK-inkt niet te halen zijn. Daarom zien
-    kleuren op papier er vaak iets doffer uit dan op je scherm.
+    Kleuren op papier zien er vaak iets doffer uit dan op je scherm, omdat een scherm meer
+    (en feller) kleuren kan maken dan een printer.
   </p>
 
   <footer>
