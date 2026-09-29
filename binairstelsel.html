@@ -77,9 +77,11 @@
       text-align: center;
     }
 
-    th {
-      background-color: darkblue;
-      color: white;
+    /* Foto */
+    .foto {
+      width: 250px;
+      max-width: 100%;
+      border: 3px solid darkblue;
     }
 
     footer {
@@ -109,64 +111,43 @@
 
   <h2>Binairstelsel</h2>
   <p>
-    Een computer bestaat uit schakelaars die aan of uit staan. Daarom werkt hij met slechts
-    twee cijfers: 0 en 1. Zo'n cijfer heet een <b>bit</b> (binary digit). Het <b>binaire
-    stelsel</b> (tweetallig stelsel) is het talstelsel met grondtal 2. Alle gegevens in een
-    computer, zoals getallen, tekst, kleuren en muziek, worden uiteindelijk als bits opgeslagen.
+    Het binaire stelsel is een manier om getallen weer te geven met maar twee cijfers:
+    0 en 1. Dit heet ook wel het base-2 systeem. In het gewone decimale stelsel gebruiken we
+    de cijfers 0 tot en met 9.
   </p>
 
-  <h3>Positiewaarden</h3>
+<!-- Plek voor een foto -->
+  <img src="binair.jpg" alt="Foto bij het binaire stelsel" class="foto">
+
+  <h3>Hoe werkt het?</h3>
   <p>
-    Ons gewone decimale stelsel heeft grondtal 10: elke positie is een macht van 10
-    (1, 10, 100, ...). Bij het binaire stelsel is elke positie een macht van 2. Van rechts naar
-    links zijn de waarden 2<sup>0</sup>, 2<sup>1</sup>, 2<sup>2</sup>, enzovoort.
+    Elke positie in een binair getal is een macht van 2, net zoals elke positie in een
+    decimaal getal een macht van 10 is. Van rechts naar links zijn de waarden:
   </p>
   <table>
     <tr>
-      <th>Positie</th>
-      <td>2<sup>7</sup></td><td>2<sup>6</sup></td><td>2<sup>5</sup></td><td>2<sup>4</sup></td>
-      <td>2<sup>3</sup></td><td>2<sup>2</sup></td><td>2<sup>1</sup></td><td>2<sup>0</sup></td>
-    </tr>
-    <tr>
-      <th>Waarde</th>
-      <td>128</td><td>64</td><td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td>
+      <td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td>
     </tr>
   </table>
 
-  <h3>Van binair naar decimaal</h3>
+  <h3>Voorbeeld: 101</h3>
   <p>
-    Tel de positiewaarden op waar een 1 staat. Voorbeeld: <code>10110101</code>
-  </p>
-  <p>
-    1×128 + 0×64 + 1×32 + 1×16 + 0×8 + 1×4 + 0×2 + 1×1 = 128 + 32 + 16 + 4 + 1 = <b>181</b>
-  </p>
-
-  <h3>Van decimaal naar binair</h3>
-  <p>
-    Deel het getal steeds door 2 en schrijf de rest op. Lees de resten daarna van onder naar
-    boven. Voorbeeld: 37.
-  </p>
-  <table>
-    <tr><th>Deling</th><th>Uitkomst</th><th>Rest</th></tr>
-    <tr><td>37 : 2</td><td>18</td><td>1</td></tr>
-    <tr><td>18 : 2</td><td>9</td><td>0</td></tr>
-    <tr><td>9 : 2</td><td>4</td><td>1</td></tr>
-    <tr><td>4 : 2</td><td>2</td><td>0</td></tr>
-    <tr><td>2 : 2</td><td>1</td><td>0</td></tr>
-    <tr><td>1 : 2</td><td>0</td><td>1</td></tr>
-  </table>
-  <p>
-    Van onder naar boven gelezen: <code>100101</code>. Dus 37 = 100101 in binair.
+    Rechts staat een 1 (waarde 1), in het midden een 0 (waarde 2, telt niet mee) en links
+    een 1 (waarde 4). Optellen: 4 + 0 + 1 = 5. Dus het binaire getal 101 is 5 in het
+    decimale stelsel.
   </p>
 
-  <h3>Bits, bytes en het bereik</h3>
+  <h3>Binary Bonanza</h3>
   <p>
-    Acht bits vormen samen een <b>byte</b>. Met <i>n</i> bits kun je 2<sup><i>n</i></sup>
-    verschillende waarden opslaan. Een byte kan dus 2<sup>8</sup> = 256 waarden aannemen
-    (0 tot en met 255). Het grootste getal met <i>n</i> bits is 2<sup><i>n</i></sup> &minus; 1.
+    Wil je oefenen met het binaire stelsel? Speel dan het spel hieronder!
   </p>
 
-  <h3>Hexadecimaal</h3>
-  <p>
-    Lange rijen bits zijn onhandig om te lezen. Daarom gebruikt men vaak het
-    <b>hexadecimale stelsel</b> (grondtal 16, met de cijfers
+<!-- Het spel Binary Bonanza -->
+  <iframe src="https://games.penjee.com/binary-bonanza/game.php" width="700" height="500" frameborder="no" scrolling="no"></iframe>
+
+  <footer>
+    <p>Gemaakt door Mischa van der Veen - 2026</p>
+  </footer>
+
+</body>
+</html>
