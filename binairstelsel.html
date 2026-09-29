@@ -9,6 +9,7 @@
       font-family: arial, sans-serif;
       background-color: lightyellow;
       margin: 20px;
+      line-height: 1.5;
     }
 
     h1 {
@@ -19,8 +20,66 @@
       color: darkred;
     }
 
-    nav a {
-      margin-right: 15px;
+    h3 {
+      color: darkblue;
+    }
+
+    /* Dropdown-menu */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-knop {
+      background-color: darkblue;
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .dropdown-inhoud {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-inhoud a {
+      display: block;
+      padding: 10px 14px;
+      color: black;
+      text-decoration: none;
+    }
+
+    .dropdown-inhoud a:hover {
+      background-color: lightgray;
+    }
+
+    .dropdown:hover .dropdown-inhoud,
+    .dropdown:focus-within .dropdown-inhoud {
+      display: block;
+    }
+
+    /* Tabel */
+    table {
+      border-collapse: collapse;
+      background-color: white;
+      margin: 10px 0;
+    }
+
+    th, td {
+      border: 1px solid gray;
+      padding: 8px 12px;
+      text-align: center;
+    }
+
+    th {
+      background-color: darkblue;
+      color: white;
     }
 
     footer {
@@ -34,23 +93,80 @@
 
   <h1>Mijn Website</h1>
 
-<!-- Menu met links naar de andere paginas -->
+<!-- Dropdown-menu met links naar de andere paginas -->
   <nav>
-    <a href="index.html">Home</a>
-    <a href="binairstelsel.html">Binairstelsel</a>
-    <a href="kleurmodellen.html">Kleurmodellen</a>
+    <div class="dropdown">
+      <button class="dropdown-knop">Menu ▾</button>
+      <div class="dropdown-inhoud">
+        <a href="index.html">Home</a>
+        <a href="binairstelsel.html">Binairstelsel</a>
+        <a href="kleurmodellen.html">Kleurmodellen</a>
+      </div>
+    </div>
   </nav>
 
   <hr>
 
   <h2>Binairstelsel</h2>
   <p>
-    Hier komt de uitleg over het binairstelsel.
+    Een computer bestaat uit schakelaars die aan of uit staan. Daarom werkt hij met slechts
+    twee cijfers: 0 en 1. Zo'n cijfer heet een <b>bit</b> (binary digit). Het <b>binaire
+    stelsel</b> (tweetallig stelsel) is het talstelsel met grondtal 2. Alle gegevens in een
+    computer, zoals getallen, tekst, kleuren en muziek, worden uiteindelijk als bits opgeslagen.
   </p>
 
-  <footer>
-    <p>Gemaakt door Mischa van der Veen - 2026</p>
-  </footer>
+  <h3>Positiewaarden</h3>
+  <p>
+    Ons gewone decimale stelsel heeft grondtal 10: elke positie is een macht van 10
+    (1, 10, 100, ...). Bij het binaire stelsel is elke positie een macht van 2. Van rechts naar
+    links zijn de waarden 2<sup>0</sup>, 2<sup>1</sup>, 2<sup>2</sup>, enzovoort.
+  </p>
+  <table>
+    <tr>
+      <th>Positie</th>
+      <td>2<sup>7</sup></td><td>2<sup>6</sup></td><td>2<sup>5</sup></td><td>2<sup>4</sup></td>
+      <td>2<sup>3</sup></td><td>2<sup>2</sup></td><td>2<sup>1</sup></td><td>2<sup>0</sup></td>
+    </tr>
+    <tr>
+      <th>Waarde</th>
+      <td>128</td><td>64</td><td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td>
+    </tr>
+  </table>
 
-</body>
-</html>
+  <h3>Van binair naar decimaal</h3>
+  <p>
+    Tel de positiewaarden op waar een 1 staat. Voorbeeld: <code>10110101</code>
+  </p>
+  <p>
+    1×128 + 0×64 + 1×32 + 1×16 + 0×8 + 1×4 + 0×2 + 1×1 = 128 + 32 + 16 + 4 + 1 = <b>181</b>
+  </p>
+
+  <h3>Van decimaal naar binair</h3>
+  <p>
+    Deel het getal steeds door 2 en schrijf de rest op. Lees de resten daarna van onder naar
+    boven. Voorbeeld: 37.
+  </p>
+  <table>
+    <tr><th>Deling</th><th>Uitkomst</th><th>Rest</th></tr>
+    <tr><td>37 : 2</td><td>18</td><td>1</td></tr>
+    <tr><td>18 : 2</td><td>9</td><td>0</td></tr>
+    <tr><td>9 : 2</td><td>4</td><td>1</td></tr>
+    <tr><td>4 : 2</td><td>2</td><td>0</td></tr>
+    <tr><td>2 : 2</td><td>1</td><td>0</td></tr>
+    <tr><td>1 : 2</td><td>0</td><td>1</td></tr>
+  </table>
+  <p>
+    Van onder naar boven gelezen: <code>100101</code>. Dus 37 = 100101 in binair.
+  </p>
+
+  <h3>Bits, bytes en het bereik</h3>
+  <p>
+    Acht bits vormen samen een <b>byte</b>. Met <i>n</i> bits kun je 2<sup><i>n</i></sup>
+    verschillende waarden opslaan. Een byte kan dus 2<sup>8</sup> = 256 waarden aannemen
+    (0 tot en met 255). Het grootste getal met <i>n</i> bits is 2<sup><i>n</i></sup> &minus; 1.
+  </p>
+
+  <h3>Hexadecimaal</h3>
+  <p>
+    Lange rijen bits zijn onhandig om te lezen. Daarom gebruikt men vaak het
+    <b>hexadecimale stelsel</b> (grondtal 16, met de cijfers
