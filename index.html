@@ -20,8 +20,44 @@
       color: darkred;
     }
 
-    nav a {
-      margin-right: 15px;
+    /* Dropdown-menu */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-knop {
+      background-color: darkblue;
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .dropdown-inhoud {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-inhoud a {
+      display: block;
+      padding: 10px 14px;
+      color: black;
+      text-decoration: none;
+    }
+
+    .dropdown-inhoud a:hover {
+      background-color: lightgray;
+    }
+
+    .dropdown:hover .dropdown-inhoud,
+    .dropdown:focus-within .dropdown-inhoud {
+      display: block;
     }
 
     footer {
