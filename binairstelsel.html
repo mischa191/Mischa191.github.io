@@ -10,6 +10,7 @@
       background-color: lightyellow;
       margin: 20px;
       line-height: 1.5;
+      padding-bottom: 130px; /* ruimte voor de vaste footer */
     }
 
     h1 {
@@ -129,10 +130,33 @@
       border: 3px solid darkblue;
     }
 
+    /* Voettekst */
     footer {
-      margin-top: 40px;
-      font-size: 14px;
-      color: gray;
+      position: fixed; /* Voettekst blijft onderaan de pagina, zelfs bij scrollen */
+      bottom: 0; /* Plaatst de voettekst onderaan */
+      left: 0; /* Plaatst de voettekst aan de linkerkant */
+      width: 100%; /* Voettekst beslaat de volledige breedte */
+      background-color: #1B3B2B; /* Achtergrondkleur van de voettekst */
+      text-align: center; /* Centreert de tekst in de voettekst */
+      padding: 20px 0; /* Opvulling boven en onder in de voettekst */
+      color: white; /* Kleur van de tekst in de voettekst */
+      font-family: Arial, sans-serif; /* Lettertype voor de tekst */
+      font-size: 16px; /* Grootte van de tekst */
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    /* Stijl voor links in de voettekst */
+    footer a {
+      color: white; /* Kleur van de links in de voettekst */
+      text-decoration: underline; /* Onderstreping voor de links in de voettekst */
+    }
+
+    /* Hover-effect voor links in de voettekst */
+    footer a:hover {
+      color: #ddd; /* Kleur voor links in de voettekst bij hover */
     }
   </style>
 </head>
@@ -198,7 +222,9 @@
 <!-- Het spel Binary Bonanza -->
   <iframe src="https://games.penjee.com/binary-bonanza/game.php" width="700" height="500" frameborder="no" scrolling="no"></iframe>
 
-  <footer>
+<!-- Onderkant van de pagina: contact en gemaakt door -->
+  <footer id="contact">
+    <p><b>Contact:</b> mail me op <a href="mailto:Mischa.van.der.veen@vlietlandcollege.nl">Mischa.van.der.veen@vlietlandcollege.nl</a></p>
     <p>Gemaakt door Mischa van der Veen - 2026</p>
   </footer>
 
