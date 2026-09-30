@@ -25,44 +25,89 @@
     }
 
     /* Dropdown-menu */
-    .dropdown {
-      position: relative;
-      display: inline-block;
+    .third-level-menu
+    {
+        position: absolute;
+        top: 0;
+        right: -150px;
+        width: 150px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: none;
     }
 
-    .dropdown-knop {
-      background-color: darkblue;
-      color: white;
-      padding: 10px 18px;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
+    .third-level-menu > li
+    {
+        height: 30px;
+        width: 80px;
+        background: #999999;
+    }
+    .third-level-menu > li:hover { background: #CCCCCC; }
+
+    .second-level-menu
+    {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        width: 150px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: none;
     }
 
-    .dropdown-inhoud {
-      display: none;
-      position: absolute;
-      background-color: white;
-      min-width: 160px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      z-index: 1;
+    .second-level-menu > li
+    {
+        position: relative;
+        height: 30px;
+        background: #999999;
+    }
+    .second-level-menu > li:hover { background: #CCCCCC; }
+
+    .top-level-menu
+    {
+        list-style: none;
+        padding: 0;
+        margin: 0;
     }
 
-    .dropdown-inhoud a {
-      display: block;
-      padding: 10px 14px;
-      color: black;
-      text-decoration: none;
+    .top-level-menu::after
+    {
+        content: "";
+        display: table;
+        clear: both;
     }
 
-    .dropdown-inhoud a:hover {
-      background-color: lightgray;
+    .top-level-menu > li
+    {
+        position: relative;
+        float: left;
+        height: 30px;
+        width: 150px;
+        background: #999999;
+    }
+    .top-level-menu > li:hover { background: #CCCCCC; }
+
+    .top-level-menu li:hover > ul
+    {
+        /* On hover, display the next level's menu */
+        display: inline;
     }
 
-    .dropdown:hover .dropdown-inhoud,
-    .dropdown:focus-within .dropdown-inhoud {
-      display: block;
+    /* Menu Link Styles */
+    .top-level-menu a
+    {
+        font: bold 14px Arial, Helvetica, sans-serif;
+        color: #FFFFFF;
+        text-decoration: none;
+        padding: 0 0 0 10px;
+
+        /* Make the link cover the entire list item-container */
+        display: block;
+        line-height: 30px;
     }
+    .top-level-menu a:hover { color: #000000; }
 
     /* Tabel */
     table {
@@ -97,14 +142,22 @@
 
 <!-- Dropdown-menu met links naar de andere paginas -->
   <nav>
-    <div class="dropdown">
-      <button class="dropdown-knop">Menu ▾</button>
-      <div class="dropdown-inhoud">
-        <a href="index.html">Home</a>
-        <a href="binairstelsel.html">Binairstelsel</a>
-        <a href="kleurmodellen.html">Kleurmodellen</a>
-      </div>
-    </div>
+    <ul class="top-level-menu">
+      <li>
+        <a href="#">Menu ▾</a>
+        <ul class="second-level-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="binairstelsel.html">Binairstelsel</a></li>
+          <li>
+            <a href="kleurmodellen.html">Kleurmodellen ▸</a>
+            <ul class="third-level-menu">
+              <li><a href="kleurmodellen.html#rgb">RGB</a></li>
+              <li><a href="kleurmodellen.html#cmyk">CMYK</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </nav>
 
   <hr>
