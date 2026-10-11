@@ -1,1 +1,410 @@
 
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Compressie</title>
+
+<!-- Hier staat de opmaak van mijn pagina -->
+  <style>
+    body {
+      font-family: arial, sans-serif;
+      background-color: lightyellow;
+      margin: 20px;
+      line-height: 1.5;
+      padding-bottom: 130px; /* ruimte voor de vaste footer */
+    }
+
+    h1 {
+      color: darkblue;
+    }
+
+    h2 {
+      color: darkred;
+    }
+
+    h3 {
+      color: darkblue;
+    }
+
+    /* Dropdown-menu */
+    .third-level-menu {
+      position: absolute;
+      top: 0;
+      right: -150px;
+      width: 150px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: none;
+    }
+
+    .third-level-menu > li {
+      height: 30px;
+      width: 80px;
+      background: #999999;
+    }
+
+    .third-level-menu > li:hover {
+      background: #CCCCCC;
+    }
+
+    .second-level-menu {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      width: 260px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: none;
+      z-index: 1000;
+    }
+
+    .second-level-menu > li {
+      position: relative;
+      min-height: 30px;
+      background: #999999;
+    }
+
+    .second-level-menu > li:hover {
+      background: #CCCCCC;
+    }
+
+    .top-level-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .top-level-menu::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .top-level-menu > li {
+      position: relative;
+      float: left;
+      height: 30px;
+      width: 150px;
+      background: #999999;
+    }
+
+    .top-level-menu > li:hover {
+      background: #CCCCCC;
+    }
+
+    .top-level-menu li:hover > ul {
+      /* Bij hover wordt het volgende menu zichtbaar */
+      display: block;
+    }
+
+    /* Opmaak van de links in het menu */
+    .top-level-menu a {
+      font: bold 14px Arial, Helvetica, sans-serif;
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 0 0 0 10px;
+      display: block;
+      line-height: 30px;
+    }
+
+    .top-level-menu a:hover {
+      color: #000000;
+    }
+
+    /* Opmaak van afbeeldingen */
+    .foto {
+      width: 300px;
+      max-width: 100%;
+      border: 3px solid darkblue;
+    }
+
+    /* Opmaak van informatieblokken */
+    .informatie {
+      background-color: white;
+      border-left: 4px solid darkblue;
+      padding: 10px;
+      margin: 15px 0;
+    }
+
+    /* Opmaak van de tabel */
+    table {
+      border-collapse: collapse;
+      background-color: white;
+      margin: 10px 0;
+      max-width: 100%;
+    }
+
+    th, td {
+      border: 1px solid gray;
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: darkblue;
+      color: white;
+    }
+
+    /* Opmaak van de YouTube-video */
+    iframe {
+      max-width: 100%;
+    }
+
+    /* Voettekst */
+    footer {
+      position: fixed; /* Voettekst blijft onderaan de pagina */
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #1B3B2B;
+      text-align: center;
+      padding: 20px 0;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    /* Stijl voor links in de voettekst */
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    footer a:hover {
+      color: #ddd;
+    }
+
+    /* Opmaak voor kleine schermen */
+    @media (max-width: 600px) {
+      iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+
+      table {
+        font-size: 14px;
+      }
+
+      th, td {
+        padding: 6px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Bovenkant van de pagina -->
+  <h1>Mijn Website</h1>
+
+  <!-- Dropdown-menu met links naar de andere pagina's -->
+  <nav>
+    <ul class="top-level-menu">
+      <li>
+        <a href="#">Menu ▾</a>
+        <ul class="second-level-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="invoer-verwerking-uitvoer.html">Invoer, verwerking, uitvoer</a></li>
+          <li><a href="binairstelsel.html">Binairstelsel</a></li>
+          <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+          <li><a href="compressie.html">Compressie</a></li>
+          <li><a href="ai.html">Kunstmatige intelligentie</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <hr>
+
+  <!-- Uitleg over compressie -->
+  <h2>Compressie</h2>
+
+  <p>
+    Compressie betekent dat je een bestand kleiner maakt.
+    Hierdoor neemt het minder opslagruimte in beslag en kan het
+    sneller via internet worden verstuurd. Compressie wordt bijvoorbeeld
+    gebruikt bij foto's, video's, muziek en documenten.
+  </p>
+
+  <p>
+    Er zijn verschillende manieren om bestanden kleiner te maken.
+    Twee belangrijke begrippen zijn verliesloze compressie en
+    compressie met verlies.
+  </p>
+
+  <!-- Afbeelding over compressie -->
+  <img src="compressie.jpg"
+       alt="Afbeelding over digitale bestanden en compressie"
+       class="foto">
+
+  <!-- Verschillende soorten compressie -->
+  <h3>Soorten compressie</h3>
+
+  <div class="informatie">
+    <h3>Verliesloze compressie</h3>
+    <p>
+      Bij verliesloze compressie wordt een bestand kleiner gemaakt
+      zonder dat er gegevens verloren gaan. Na het uitpakken kun je
+      het oorspronkelijke bestand helemaal terugkrijgen.
+      Dit wordt bijvoorbeeld gebruikt bij ZIP-bestanden.
+    </p>
+  </div>
+
+  <div class="informatie">
+    <h3>Compressie met verlies</h3>
+    <p>
+      Bij compressie met verlies worden sommige gegevens verwijderd
+      om een bestand kleiner te maken. Meestal merk je daar weinig
+      van, maar de oorspronkelijke kwaliteit kan minder worden.
+      Dit wordt bijvoorbeeld gebruikt bij JPEG-afbeeldingen en
+      bepaalde video- en muziekbestanden.
+    </p>
+  </div>
+
+  <!-- Uitleg over bitmap -->
+  <h2>Bitmapafbeeldingen</h2>
+
+  <p>
+    Een bitmapafbeelding bestaat uit heel veel kleine puntjes.
+    Deze puntjes noemen we pixels. Elke pixel heeft een eigen kleur.
+    Samen vormen de pixels een afbeelding.
+  </p>
+
+  <p>
+    Foto's die je met een telefoon maakt, zijn meestal bitmapafbeeldingen.
+    Als je een bitmap sterk vergroot, kun je de afzonderlijke pixels
+    zien. De afbeelding lijkt dan minder scherp.
+  </p>
+
+  <!-- Voorbeeld van bitmap -->
+  <div class="informatie">
+    <h3>Voorbeeld: een digitale foto</h3>
+    <p>
+      Een foto met veel pixels kan veel details bevatten en daardoor
+      een groot bestand zijn. Door de foto te comprimeren, kan het
+      bestand kleiner worden. Bij compressie met verlies kan daarbij
+      een deel van de beeldinformatie verdwijnen.
+    </p>
+  </div>
+
+  <!-- Uitleg over vectorafbeeldingen -->
+  <h2>Vectorafbeeldingen</h2>
+
+  <p>
+    Een vectorafbeelding bestaat niet uit pixels, maar uit lijnen,
+    punten, vormen en berekeningen. De computer gebruikt deze gegevens
+    om de afbeelding te tekenen.
+  </p>
+
+  <p>
+    Een groot voordeel van vectorafbeeldingen is dat je ze groter of
+    kleiner kunt maken zonder dat ze wazig worden. Daarom worden ze
+    vaak gebruikt voor logo's, pictogrammen en tekeningen.
+  </p>
+
+  <!-- Voorbeeld van een vectorafbeelding -->
+  <div class="informatie">
+    <h3>Voorbeeld: een logo</h3>
+    <p>
+      Een bedrijfslogo wordt vaak als vectorbestand opgeslagen.
+      Hetzelfde logo kan dan klein op een visitekaartje staan of
+      heel groot op een reclamebord, zonder dat de randen blokkerig
+      worden.
+    </p>
+  </div>
+
+  <!-- Verschillen tussen bitmap en vector -->
+  <h2>Bitmap of vector: wat is het verschil?</h2>
+
+  <table>
+    <tr>
+      <th>Eigenschap</th>
+      <th>Bitmap</th>
+      <th>Vector</th>
+    </tr>
+    <tr>
+      <td>Opbouw</td>
+      <td>Pixels</td>
+      <td>Lijnen en vormen</td>
+    </tr>
+    <tr>
+      <td>Voorbeelden</td>
+      <td>Foto's</td>
+      <td>Logo's en pictogrammen</td>
+    </tr>
+    <tr>
+      <td>Vergroten</td>
+      <td>Kan blokkerig worden</td>
+      <td>Blijft scherp</td>
+    </tr>
+    <tr>
+      <td>Bestandsformaten</td>
+      <td>JPG, PNG, BMP</td>
+      <td>SVG</td>
+    </tr>
+  </table>
+
+  <!-- Waarom is compressie handig? -->
+  <h2>Waarom is compressie belangrijk?</h2>
+
+  <p>
+    Compressie is handig omdat foto's, video's en andere bestanden
+    veel opslagruimte kunnen innemen. Door bestanden kleiner te maken,
+    passen er meer bestanden op een apparaat en kunnen ze sneller
+    worden verstuurd.
+  </p>
+
+  <p>
+    Het is wel belangrijk om de juiste methode te kiezen.
+    Bij een belangrijke afbeelding wil je misschien geen kwaliteit
+    verliezen. Bij een grote verzameling foto's kan een kleinere
+    bestandsgrootte juist handig zijn.
+  </p>
+
+  <!-- Video over compressie -->
+  <h2>Video over compressie</h2>
+
+  <p>
+    Hieronder kun je een YouTube-video over bitmap- en
+    vectorafbeeldingen zien. De video kan helpen om het verschil
+    tussen pixels en vectorvormen beter te begrijpen.
+  </p>
+
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/khTjKD5Y6L4"
+    width="560"
+    height="315"
+    title="Uitlegvideo over bitmap en vector"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+
+  <p>
+    Ik heb deze video gekozen omdat hij op een eenvoudige manier uitlegt wat het verschil is
+    tussen bitmap- en vectorafbeeldingen.
+    Na het bekijken van de video begrijp ik beter dat bitmapafbeeldingen uit pixels bestaan
+    en daardoor wazig kunnen worden als je ze vergroot. Ook heb ik geleerd dat vectorafbeeldingen
+    uit lijnen en vormen bestaan, waardoor ze altijd scherp blijven. Daardoor weet ik nu beter
+    wanneer je een bitmapafbeelding gebruikt, zoals bij foto's, en wanneer een vectorafbeelding handig is, zoals bij logo's
+  </p>
+
+  <!-- Onderkant van de pagina: contact en gemaakt door -->
+  <footer id="contact">
+    <p><b>Contact:</b> mail me op
+      <a href="mailto:Mischa.van.der.veen@vlietlandcollege.nl">
+        Mischa.van.der.veen@vlietlandcollege.nl
+      </a>
+    </p>
+    <p>Gemaakt door Mischa van der Veen - 2026</p>
+  </footer>
+
+</body>
+</html>
