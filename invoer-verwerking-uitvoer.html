@@ -1,1 +1,381 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Invoer, verwerking en uitvoer</title>
 
+  <!-- Hier staat de opmaak van mijn pagina -->
+  <style>
+    body {
+      font-family: arial, sans-serif;
+      background-color: lightyellow;
+      margin: 20px;
+      line-height: 1.5;
+      padding-bottom: 130px; /* ruimte voor de vaste footer */
+    }
+
+    h1 {
+      color: darkblue;
+    }
+
+    h2 {
+      color: darkred;
+    }
+
+    h3 {
+      color: darkblue;
+    }
+
+    /* Dropdown-menu */
+    .third-level-menu {
+      position: absolute;
+      top: 0;
+      right: -150px;
+      width: 150px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: none;
+    }
+
+    .third-level-menu > li {
+      height: 30px;
+      width: 150px;
+      background: #999999;
+    }
+
+    .third-level-menu > li:hover {
+      background: #CCCCCC;
+    }
+
+    .second-level-menu {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      width: 260px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: none;
+      z-index: 1000;
+    }
+
+    .second-level-menu > li {
+      position: relative;
+      min-height: 30px;
+      background: #999999;
+    }
+
+    .second-level-menu > li:hover {
+      background: #CCCCCC;
+    }
+
+    .top-level-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .top-level-menu::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .top-level-menu > li {
+      position: relative;
+      float: left;
+      height: 30px;
+      width: 150px;
+      background: #999999;
+    }
+
+    .top-level-menu > li:hover {
+      background: #CCCCCC;
+    }
+
+    .top-level-menu li:hover > ul {
+      /* Bij hover wordt het volgende menu zichtbaar */
+      display: block;
+    }
+
+    /* Opmaak van de links in het menu */
+    .top-level-menu a {
+      font: bold 14px Arial, Helvetica, sans-serif;
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 0 0 0 10px;
+      display: block;
+      line-height: 30px;
+    }
+
+    .top-level-menu a:hover {
+      color: #000000;
+    }
+
+    /* Opmaak van de informatieblokken */
+    .informatie {
+      background-color: white;
+      border-left: 4px solid darkblue;
+      padding: 10px;
+      margin: 15px 0;
+    }
+
+    /* Opmaak van de afbeelding */
+    .foto {
+      width: 300px;
+      max-width: 100%;
+      border: 3px solid darkblue;
+    }
+
+    /* Opmaak van de tabel */
+    table {
+      border-collapse: collapse;
+      background-color: white;
+      margin: 10px 0;
+      max-width: 100%;
+    }
+
+    th, td {
+      border: 1px solid gray;
+      padding: 8px 12px;
+      text-align: center;
+    }
+
+    th {
+      background-color: darkblue;
+      color: white;
+    }
+
+    /* Opmaak van de YouTube-video */
+    iframe {
+      max-width: 100%;
+      border: 3px solid darkblue;
+    }
+
+    /* Voettekst */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #1B3B2B;
+      text-align: center;
+      padding: 20px 0;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    /* Stijl voor links in de voettekst */
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    footer a:hover {
+      color: #ddd;
+    }
+
+    /* Opmaak aanpassen voor kleine schermen */
+    @media (max-width: 600px) {
+      iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+
+      table {
+        font-size: 14px;
+      }
+
+      th, td {
+        padding: 6px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Bovenkant van de pagina -->
+  <h1>Mijn Website</h1>
+
+  <!-- Dropdown-menu met links naar de andere pagina's -->
+  <nav>
+    <ul class="top-level-menu">
+      <li>
+        <a href="#">Menu ▾</a>
+        <ul class="second-level-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="invoer-verwerking-uitvoer.html">Invoer, verwerking, uitvoer</a></li>
+          <li><a href="binairstelsel.html">Binairstelsel</a></li>
+          <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+          <li><a href="compressie.html">Compressie</a></li>
+          <li><a href="ai.html">Kunstmatige intelligentie</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <hr>
+
+  <!-- Uitleg over invoer, verwerking en uitvoer -->
+  <h2>Invoer, verwerking en uitvoer</h2>
+
+  <div class="informatie">
+    <p>
+      Een computer werkt meestal volgens drie stappen:
+      <b>invoer, verwerking en uitvoer</b>. Dit wordt ook wel het
+      IPO-model genoemd. Een computer ontvangt gegevens, verwerkt
+      deze gegevens en geeft daarna een resultaat.
+    </p>
+  </div>
+
+  <!-- Afbeelding over het IPO-model -->
+  <img
+    src="ipo.jpg"
+    alt="Schematische afbeelding van invoer, verwerking en uitvoer"
+    class="foto">
+
+  <!-- Uitleg over invoer -->
+  <h3>1. Invoer</h3>
+
+  <div class="informatie">
+    <p>
+      Invoer is alle informatie die je aan een computer geeft.
+      Dat kan bijvoorbeeld met een toetsenbord, muis, microfoon
+      of touchscreen.
+    </p>
+
+    <p>
+      <b>Voorbeeld:</b> je typt een som op je toetsenbord.
+      De getallen en het rekenteken zijn de invoer.
+    </p>
+  </div>
+
+  <!-- Uitleg over verwerking -->
+  <h3>2. Verwerking</h3>
+
+  <div class="informatie">
+    <p>
+      Tijdens de verwerking gaat de computer met de ingevoerde
+      gegevens aan de slag. De processor voert opdrachten uit
+      en berekent bijvoorbeeld een antwoord.
+    </p>
+
+    <p>
+      <b>Voorbeeld:</b> de computer berekent de som
+      5 + 3. De verwerking bestaat uit het uitvoeren van de
+      berekening.
+    </p>
+  </div>
+
+  <!-- Uitleg over uitvoer -->
+  <h3>3. Uitvoer</h3>
+
+  <div class="informatie">
+    <p>
+      Uitvoer is het resultaat dat de computer teruggeeft.
+      Dit kan bijvoorbeeld op een beeldscherm verschijnen,
+      uit de luidsprekers komen of op papier worden afgedrukt.
+    </p>
+
+    <p>
+      <b>Voorbeeld:</b> op het beeldscherm verschijnt het antwoord
+      8. Dat is de uitvoer.
+    </p>
+  </div>
+
+  <!-- Overzicht van de drie stappen -->
+  <h3>Overzicht van het IPO-model</h3>
+
+  <table>
+    <tr>
+      <th>Stap</th>
+      <th>Wat gebeurt er?</th>
+      <th>Voorbeeld</th>
+    </tr>
+    <tr>
+      <td>Invoer</td>
+      <td>Gegevens invoeren</td>
+      <td>Je typt 5 + 3</td>
+    </tr>
+    <tr>
+      <td>Verwerking</td>
+      <td>De computer rekent</td>
+      <td>5 + 3 wordt berekend</td>
+    </tr>
+    <tr>
+      <td>Uitvoer</td>
+      <td>Het resultaat verschijnt</td>
+      <td>Het antwoord is 8</td>
+    </tr>
+  </table>
+
+  <!-- Voorbeeld uit het dagelijks leven -->
+  <h3>Voorbeeld uit het dagelijks leven</h3>
+
+  <div class="informatie">
+    <p>
+      Ook een rekenmachine werkt volgens het IPO-model.
+      Je voert een berekening in met de knoppen.
+      De rekenmachine verwerkt de getallen en geeft het antwoord
+      weer op het scherm.
+    </p>
+
+    <p>
+      Zonder invoer heeft de rekenmachine meestal niets om te
+      berekenen. Zonder verwerking komt er geen berekend antwoord
+      en zonder uitvoer kun je het antwoord niet aflezen.
+    </p>
+  </div>
+
+  <!-- Video over invoer, verwerking en uitvoer -->
+  <h2>Video over het IPO-model</h2>
+
+  <div class="informatie">
+    <p>
+      Hieronder kun je een YouTube-video bekijken over de werking
+      van computers. De video is bedoeld als extra uitleg bij
+      invoer, verwerking en uitvoer.
+    </p>
+
+  </div>
+
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube-nocookie.com/embed/CBf-jIn44X0"
+    title="Video over invoer, verwerking en uitvoer"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+  
+ <p>
+  Ik heb deze video gekozen omdat hij op een duidelijke manier uitlegt
+  hoe invoer, verwerking en uitvoer samenwerken in een computersysteem.
+  Door deze video heb ik geleerd dat een computer eerst gegevens ontvangt
+  via invoerapparaten zoals een toetsenbord of muis, deze gegevens vervolgens
+  verwerkt met de processor en daarna het resultaat toont via uitvoerapparaten
+  zoals een beeldscherm of printer. Hierdoor begrijp ik beter hoe een computer informatie verwerkt.
+    </p>
+  
+  <!-- Onderkant van de pagina: contact en gemaakt door -->
+  <footer id="contact">
+    <p>
+      <b>Contact:</b> mail me op
+      <a href="mailto:Mischa.van.der.veen@vlietlandcollege.nl">
+        Mischa.van.der.veen@vlietlandcollege.nl
+      </a>
+    </p>
+
+    <p>Gemaakt door Mischa van der Veen - 2026</p>
+  </footer>
+
+</body>
+</html>
