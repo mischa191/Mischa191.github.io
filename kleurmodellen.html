@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Kleurmodellen</title>
-<!--Hier staat de opmaak van mijn pagina-->
+
+  <!-- Hier staat de opmaak van mijn pagina -->
   <style>
     body {
-      font-family: arial, sans-serif;
+      font-family: Arial, sans-serif;
       background-color: lightyellow;
       margin: 20px;
       line-height: 1.5;
-      padding-bottom: 130px; /* ruimte voor de vaste footer */
+      padding-bottom: 130px; /* Ruimte voor de vaste footer */
     }
 
     h1 {
@@ -25,96 +26,116 @@
       color: darkblue;
     }
 
-    /* Dropdown-menu */
-    .third-level-menu
-    {
-        position: absolute;
-        top: 0;
-        right: -150px;
-        width: 150px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: none;
+    /* Opmaak van het dropdown-menu */
+    .third-level-menu {
+      position: absolute;
+      top: 0;
+      right: -150px;
+      width: 150px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: none;
     }
 
-    .third-level-menu > li
-    {
-        height: 30px;
-        width: 80px;
-        background: #999999;
-    }
-    .third-level-menu > li:hover { background: #CCCCCC; }
-
-    .second-level-menu
-    {
-        position: absolute;
-        top: 30px;
-        left: 0;
-        width: 150px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: none;
+    .third-level-menu > li {
+      min-height: 30px;
+      background: #999999;
     }
 
-    .second-level-menu > li
-    {
-        position: relative;
-        height: 30px;
-        background: #999999;
-    }
-    .second-level-menu > li:hover { background: #CCCCCC; }
-
-    .top-level-menu
-    {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+    .third-level-menu > li:hover {
+      background: #CCCCCC;
     }
 
-    .top-level-menu::after
-    {
-        content: "";
-        display: table;
-        clear: both;
+    .second-level-menu {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      width: 260px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: none;
+      z-index: 1000;
     }
 
-    .top-level-menu > li
-    {
-        position: relative;
-        float: left;
-        height: 30px;
-        width: 150px;
-        background: #999999;
-    }
-    .top-level-menu > li:hover { background: #CCCCCC; }
-
-    .top-level-menu li:hover > ul
-    {
-        /* On hover, display the next level's menu */
-        display: inline;
+    .second-level-menu > li {
+      position: relative;
+      min-height: 30px;
+      background: #999999;
     }
 
-    /* Menu Link Styles */
-    .top-level-menu a
-    {
-        font: bold 14px Arial, Helvetica, sans-serif;
-        color: #FFFFFF;
-        text-decoration: none;
-        padding: 0 0 0 10px;
-
-        /* Make the link cover the entire list item-container */
-        display: block;
-        line-height: 30px;
+    .second-level-menu > li:hover {
+      background: #CCCCCC;
     }
-    .top-level-menu a:hover { color: #000000; }
 
-    /* Tabel */
+    .top-level-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .top-level-menu::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .top-level-menu > li {
+      position: relative;
+      float: left;
+      height: 30px;
+      width: 150px;
+      background: #999999;
+    }
+
+    .top-level-menu > li:hover {
+      background: #CCCCCC;
+    }
+
+    .top-level-menu li:hover > ul {
+      /* Bij hover wordt het volgende menu zichtbaar */
+      display: block;
+    }
+
+    /* Opmaak van de links in het menu */
+    .top-level-menu a {
+      font: bold 14px Arial, Helvetica, sans-serif;
+      color: white;
+      text-decoration: none;
+      padding: 0 10px;
+      display: block;
+      line-height: 30px;
+    }
+
+    .top-level-menu a:hover {
+      color: black;
+    }
+
+    /* Opmaak van de kleurvakjes */
+    .vakje {
+      display: inline-block;
+      width: 60px;
+      height: 40px;
+      border: 1px solid black;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    /* Opmaak van de informatieblokken */
+    .informatie {
+      background-color: white;
+      border-left: 4px solid darkblue;
+      padding: 10px;
+      margin: 15px 0;
+    }
+
+    /* Opmaak van de tabel */
     table {
       border-collapse: collapse;
       background-color: white;
       margin: 10px 0;
+      max-width: 100%;
     }
 
     th, td {
@@ -128,133 +149,258 @@
       color: white;
     }
 
-    /* Kleurvakjes */
-    .vakje {
-      display: inline-block;
-      width: 60px;
-      height: 40px;
-      border: 1px solid black;
-      vertical-align: middle;
-      margin-right: 5px;
+    /* Opmaak van afbeeldingen */
+    .foto {
+      width: 300px;
+      max-width: 100%;
+      border: 3px solid darkblue;
     }
 
-    /* Voettekst */
+    /* Video past binnen het scherm */
+    iframe {
+      max-width: 100%;
+      border: 0;
+    }
+
+    /* Opmaak van de voettekst */
     footer {
-      position: fixed; /* Voettekst blijft onderaan de pagina, zelfs bij scrollen */
-      bottom: 0; /* Plaatst de voettekst onderaan */
-      left: 0; /* Plaatst de voettekst aan de linkerkant */
-      width: 100%; /* Voettekst beslaat de volledige breedte */
-      background-color: #1B3B2B; /* Achtergrondkleur van de voettekst */
-      text-align: center; /* Centreert de tekst in de voettekst */
-      padding: 20px 0; /* Opvulling boven en onder in de voettekst */
-      color: white; /* Kleur van de tekst in de voettekst */
-      font-family: Arial, sans-serif; /* Lettertype voor de tekst */
-      font-size: 16px; /* Grootte van de tekst */
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #1B3B2B;
+      text-align: center;
+      padding: 20px 0;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
     }
 
     footer p {
       margin: 5px 0;
     }
 
-    /* Stijl voor links in de voettekst */
     footer a {
-      color: white; /* Kleur van de links in de voettekst */
-      text-decoration: underline; /* Onderstreping voor de links in de voettekst */
+      color: white;
+      text-decoration: underline;
     }
 
-    /* Hover-effect voor links in de voettekst */
     footer a:hover {
-      color: #ddd; /* Kleur voor links in de voettekst bij hover */
+      color: #ddd;
+    }
+
+    /* Opmaak aanpassen voor kleine schermen */
+    @media (max-width: 600px) {
+      iframe {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        height: auto;
+      }
+
+      table {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
+
 <body>
 
+  <!-- Bovenkant van de pagina -->
   <h1>Mijn Website</h1>
 
-<!-- Dropdown-menu met links naar de andere paginas -->
-<nav>
-  <ul class="top-level-menu">
-    <li>
-      <a href="#">Menu ▾</a>
-      <ul class="second-level-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="invoer-verwerking-uitvoer.html">Invoer, verwerking, uitvoer</a></li>
-        <li><a href="binairstelsel.html">Binairstelsel</a></li>
-        <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
-        <li><a href="compressie.html">Compressie</a></li>
-        <li><a href="ai.html">Kunstmatige intelligentie</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
+  <!-- Dropdown-menu met links naar de andere pagina's -->
+  <nav>
+    <ul class="top-level-menu">
+      <li>
+        <a href="#">Menu ▾</a>
+        <ul class="second-level-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="invoer-verwerking-uitvoer.html">Invoer, verwerking, uitvoer</a></li>
+          <li><a href="binairstelsel.html">Binairstelsel</a></li>
+          <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+          <li><a href="compressie.html">Compressie</a></li>
+          <li><a href="ai.html">Kunstmatige intelligentie</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
 
   <hr>
 
+  <!-- Uitleg over kleurmodellen -->
   <h2>Kleurmodellen</h2>
+
   <p>
-    Een computer slaat kleuren op als getallen. Een <b>kleurmodel</b> is een manier om een
-    kleur met getallen te beschrijven. Er zijn twee belangrijke modellen: RGB voor schermen
-    en CMYK voor drukwerk.
+    Een computer slaat kleuren op als getallen. Een
+    <b>kleurmodel</b> is een manier om een kleur met getallen
+    te beschrijven. Twee belangrijke kleurmodellen zijn RGB
+    voor schermen en CMYK voor drukwerk.
   </p>
 
-  <h3 id="rgb">RGB (rood, groen, blauw)</h3>
+  <!-- Afbeelding over kleurmodellen -->
+  <h3>Voorbeeld van kleuren</h3>
+
   <p>
-    RGB gebruik je voor schermen, zoals een telefoon of computer. Een scherm maakt kleuren door
-    rood, groen en blauw licht te mengen. Dit heet <b>additief</b> mengen: je telt licht bij
-    elkaar op.
-  </p>
-  <p>
-    Rood, groen en blauw hebben elk een waarde van 0 tot en met 255:
-  </p>
-  <p>
-    <span class="vakje" style="background-color: rgb(255,0,0);"></span> rood = (255, 0, 0)<br>
-    <span class="vakje" style="background-color: rgb(255,255,0);"></span> geel = (255, 255, 0)<br>
-    <span class="vakje" style="background-color: rgb(255,255,255);"></span> wit = (255, 255, 255)<br>
-    <span class="vakje" style="background-color: rgb(0,0,0);"></span> zwart = (0, 0, 0)
-  </p>
-  <p>
-    Een waarde van 0 tot en met 255 past in 8 bits (2<sup>8</sup> = 256 mogelijkheden). Met drie
-    kleuren is dat 3 × 8 = 24 bits per pixel. Het aantal kleuren is dan
-    256 × 256 × 256 = 2<sup>24</sup> = 16.777.216.
+    Hieronder zie je verschillende kleuren die een computer
+    kan weergeven met RGB-waarden.
   </p>
 
-  <h3 id="cmyk">CMYK (cyaan, magenta, geel, zwart)</h3>
   <p>
-    CMYK gebruik je voor drukwerk. Een printer gebruikt inkt in vier kleuren: cyaan, magenta,
-    geel en zwart. Dit heet <b>subtractief</b> mengen: je begint met wit papier en elke laag
-    inkt haalt licht weg, dus het wordt donkerder. Er is aparte zwarte inkt omdat je met alleen
-    cyaan, magenta en geel geen mooi diep zwart krijgt.
+    <span class="vakje"
+      style="background-color: rgb(255,0,0);"></span>
+    Rood = (255, 0, 0)
+    <br>
+
+    <span class="vakje"
+      style="background-color: rgb(0,255,0);"></span>
+    Groen = (0, 255, 0)
+    <br>
+
+    <span class="vakje"
+      style="background-color: rgb(0,0,255);"></span>
+    Blauw = (0, 0, 255)
+    <br>
+
+    <span class="vakje"
+      style="background-color: rgb(255,255,0);"></span>
+    Geel = (255, 255, 0)
+    <br>
+
+    <span class="vakje"
+      style="background-color: rgb(255,255,255);"></span>
+    Wit = (255, 255, 255)
+    <br>
+
+    <span class="vakje"
+      style="background-color: rgb(0,0,0);"></span>
+    Zwart = (0, 0, 0)
   </p>
 
-  <h3>Overzicht</h3>
+  <!-- Uitleg over RGB -->
+  <h2 id="rgb">RGB (rood, groen, blauw)</h2>
+
+  <p>
+    RGB wordt gebruikt voor schermen, zoals telefoons,
+    televisies en computerschermen. Een scherm maakt kleuren
+    door rood, groen en blauw licht te mengen.
+    Dit heet <b>additief mengen</b>: je telt licht bij elkaar op.
+  </p>
+
+  <div class="informatie">
+    <h3>Hoe werkt RGB?</h3>
+    <p>
+      De drie kleuren hebben elk een waarde van 0 tot en met 255.
+      Bij een waarde van 0 is er geen licht van die kleur.
+      Bij een waarde van 255 is de kleur op zijn sterkst.
+    </p>
+    <p>
+      Als je rood, groen en blauw licht op volle sterkte mengt,
+      krijg je wit. Als alle drie de waarden 0 zijn, krijg je zwart.
+    </p>
+  </div>
+
+  <h3>Hoeveel kleuren zijn mogelijk?</h3>
+
+  <p>
+    Elke RGB-kleur gebruikt 8 bits. Dat betekent dat elke kleur
+    256 verschillende waarden kan hebben. Samen gebruiken rood,
+    groen en blauw 24 bits per pixel.
+  </p>
+
+  <p>
+    Het aantal mogelijke combinaties is:
+    256 × 256 × 256 = 16.777.216 kleuren.
+  </p>
+
+  <!-- Uitleg over CMYK -->
+  <h2 id="cmyk">CMYK (cyaan, magenta, geel en zwart)</h2>
+
+  <p>
+    CMYK wordt gebruikt voor drukwerk, zoals foto's,
+    tijdschriften en posters. Een printer gebruikt vier
+    kleuren inkt: cyaan, magenta, geel en zwart.
+  </p>
+
+  <div class="informatie">
+    <h3>Hoe werkt CMYK?</h3>
+    <p>
+      CMYK werkt anders dan RGB. Je begint met wit papier
+      en de inkt haalt een deel van het licht weg.
+      Dit heet <b>subtractief mengen</b>.
+    </p>
+    <p>
+      De zwarte kleur is toegevoegd omdat je met alleen
+      cyaan, magenta en geel meestal geen diep en mooi
+      zwart krijgt.
+    </p>
+  </div>
+
+  <!-- Vergelijking van RGB en CMYK -->
+  <h2>Verschil tussen RGB en CMYK</h2>
+
   <table>
     <tr>
-      <th>Model</th>
-      <th>Soort mengen</th>
-      <th>Gebruikt voor</th>
+      <th>Kenmerk</th>
+      <th>RGB</th>
+      <th>CMYK</th>
     </tr>
     <tr>
-      <td>RGB</td>
+      <td>Kleuren</td>
+      <td>Rood, groen, blauw</td>
+      <td>Cyaan, magenta, geel, zwart</td>
+    </tr>
+    <tr>
+      <td>Methode</td>
       <td>Additief (licht)</td>
-      <td>Schermen en websites</td>
+      <td>Subtractief (inkt)</td>
     </tr>
     <tr>
-      <td>CMYK</td>
-      <td>Subtractief (inkt)</td>
-      <td>Drukwerk</td>
+      <td>Gebruik</td>
+      <td>Schermen en websites</td>
+      <td>Drukwerk en printers</td>
     </tr>
   </table>
 
   <p>
-    Kleuren op papier zien er vaak iets doffer uit dan op je scherm, omdat een scherm meer
-    (en feller) kleuren kan maken dan een printer.
+    Kleuren op papier zien er soms anders uit dan op een scherm.
+    Dat komt doordat een scherm licht uitzendt, terwijl papier
+    licht weerkaatst en inkt een deel van het licht absorbeert.
   </p>
 
-<!-- Onderkant van de pagina: contact en gemaakt door -->
+  <!-- Video over kleurmodellen -->
+  <h2>Video over kleurmodellen</h2>
+
+  <p>
+    Hieronder kun je een video over RGB en CMYK bekijken.
+    Deze video is bedoeld als extra uitleg over het verschil
+    tussen kleuren op een scherm en kleuren bij het afdrukken.
+  </p>
+
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube-nocookie.com/embed/NrISnJ4iwNg"
+    title="Video over kleurmodellen"
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
+
+  <p>
+    Ik heb een video over kleurmodellen toegevoegd omdat je
+    met bewegende beelden beter kunt begrijpen hoe kleuren
+    worden gemengd. De video vormt een aanvulling op de uitleg
+    over RGB en CMYK op deze pagina.
+  </p>
+
+  <!-- Onderkant van de pagina: contact en maker -->
   <footer id="contact">
-    <p><b>Contact:</b> mail me op <a href="mailto:Mischa.van.der.veen@vlietlandcollege.nl">Mischa.van.der.veen@vlietlandcollege.nl</a></p>
+    <p>
+      <b>Contact:</b> mail me op
+      <a href="mailto:Mischa.van.der.veen@vlietlandcollege.nl">
+        Mischa.van.der.veen@vlietlandcollege.nl
+      </a>
+    </p>
     <p>Gemaakt door Mischa van der Veen - 2026</p>
   </footer>
 
