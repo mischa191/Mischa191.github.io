@@ -2,16 +2,16 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mijn Voorpagina</title>
 
-  <!-- Hier staat de opmaak van mijn pagina -->
   <style>
     body {
-      font-family: arial, sans-serif;
+      font-family: Arial, sans-serif;
       background-color: lightyellow;
       margin: 20px;
       line-height: 1.5;
-      padding-bottom: 130px; /* ruimte voor de vaste footer */
+      padding-bottom: 130px;
     }
 
     h1 {
@@ -40,7 +40,6 @@
 
     .third-level-menu > li {
       height: 30px;
-      width: 80px;
       background: #999999;
     }
 
@@ -95,48 +94,51 @@
     }
 
     .top-level-menu li:hover > ul {
-      /* Bij hover wordt het volgende menu zichtbaar */
       display: block;
     }
 
-    /* Opmaak van de links in het menu */
+    /* Links in het menu */
     .top-level-menu a {
       font: bold 14px Arial, Helvetica, sans-serif;
-      color: #FFFFFF;
+      color: white;
       text-decoration: none;
-      padding: 0 0 0 10px;
+      padding-left: 10px;
       display: block;
       line-height: 30px;
     }
 
     .top-level-menu a:hover {
-      color: #000000;
+      color: black;
     }
 
-    /* Twee kolommen: links over mij en rechts mijn hobby's */
+    /* Twee kolommen */
     .kolommen {
       display: flex;
       justify-content: space-between;
-      gap: 40px;
+      gap: 30px;
       margin-top: 20px;
     }
 
     .links {
       flex: 2;
+      min-width: 0;
     }
 
     .rechts {
       flex: 1;
+      min-width: 0;
     }
 
-    /* Opmaak van de foto */
+    /* Afbeeldingen */
     .foto {
       width: 300px;
       max-width: 100%;
+      height: auto;
       border: 3px solid darkblue;
+      margin: 10px 0;
     }
 
-    /* Opmaak van het informatieblok */
+    /* Informatieblokken */
     .informatie {
       background-color: white;
       border-left: 4px solid darkblue;
@@ -144,36 +146,42 @@
       margin: 15px 0;
     }
 
-    /* Voettekst */
+    /* Footer */
     footer {
-      position: fixed; /* Voettekst blijft onderaan de pagina */
+      position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
+      box-sizing: border-box;
       background-color: #1B3B2B;
       text-align: center;
-      padding: 20px 0;
+      padding: 15px 10px;
       color: white;
       font-family: Arial, sans-serif;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     footer p {
       margin: 5px 0;
     }
 
-    /* Stijl voor links in de voettekst */
     footer a {
       color: white;
       text-decoration: underline;
+      overflow-wrap: anywhere;
     }
 
     footer a:hover {
       color: #ddd;
     }
 
-    /* Opmaak aanpassen voor kleine schermen */
+    /* Kleine schermen */
     @media (max-width: 600px) {
+      body {
+        margin: 12px;
+        padding-bottom: 120px;
+      }
+
       .kolommen {
         flex-direction: column;
         gap: 10px;
@@ -181,6 +189,11 @@
 
       .second-level-menu {
         width: 260px;
+        max-width: calc(100vw - 30px);
+      }
+
+      .foto {
+        width: 300px;
       }
     }
   </style>
@@ -191,9 +204,12 @@
   <!-- Bovenkant van de pagina -->
   <h1>Mijn Website</h1>
 
-  <p>Welkom op mijn voorpagina!</p>
+  <p>
+    Welkom op mijn informaticawebsite! Hier vertel ik over verschillende
+    onderwerpen uit de informatica.
+  </p>
 
-  <!-- Dropdown-menu met links naar de andere pagina's -->
+  <!-- Dropdown-menu -->
   <nav>
     <ul class="top-level-menu">
       <li>
@@ -212,44 +228,111 @@
 
   <hr>
 
-  <!-- Twee kolommen met informatie over mij en mijn hobby's -->
+  <!-- Twee kolommen -->
   <div class="kolommen">
 
-    <!-- Linkerkolom: over mij -->
+    <!-- Linkerkolom -->
     <div class="links">
 
-      <h2 id="over-mij">Over mij</h2>
+      <h2>Over mij</h2>
 
       <div class="informatie">
         <p>
-          Ik ben Mischa en ik zit in vwo 5. Deze pagina is gemaakt
-          voor het vak informatica.
+          Ik ben Mischa en ik zit in vwo 5. Deze website heb ik gemaakt
+          voor het vak informatica. Op deze website laat ik zien wat ik
+          over verschillende onderwerpen heb geleerd.
+        </p>
+
+        <p>
+          Ik vind het interessant om te ontdekken hoe computers werken
+          en hoe technologie wordt gebruikt in het dagelijks leven.
+          Bij informatica leer je niet alleen over computers, maar ook
+          over de manier waarop informatie wordt opgeslagen en verwerkt.
         </p>
       </div>
 
-      <!-- Plek voor mijn eigen foto -->
-      <img src="foto.jpg" alt="Foto van Mischa" class="foto">
+      <!-- Eerste foto -->
+      <img
+        src="foto.jpg"
+        alt="Eerste foto op mijn voorpagina"
+        class="foto">
+
+      <h2>Wat vind ik belangrijk?</h2>
+
+      <div class="informatie">
+        <p>
+          Ik vind het belangrijk om nieuwe dingen te leren en mezelf
+          te blijven ontwikkelen. Wanneer ik iets nog niet begrijp,
+          probeer ik extra uitleg te zoeken en voorbeelden te bekijken.
+          Zo kan ik stap voor stap beter begrijpen hoe iets werkt.
+        </p>
+      </div>
+
+      <h2>Waarom deze website?</h2>
+
+      <div class="informatie">
+        <p>
+          Met deze website wil ik laten zien wat ik tijdens informatica
+          heb geleerd. Ik heb verschillende pagina's gemaakt waarop
+          onderwerpen worden uitgelegd met voorbeelden, afbeeldingen
+          en video's.
+        </p>
+
+        <p>
+          Tijdens het maken van de website leer ik ook hoe HTML en CSS
+          werken. HTML gebruik je voor de inhoud van een pagina en CSS
+          voor de opmaak, zoals kleuren, lettertypes en menu's.
+        </p>
+      </div>
+
+      <!-- Tweede foto -->
+      <img
+        src="foto2.jpg"
+        alt="Tweede foto op mijn voorpagina"
+        class="foto">
 
     </div>
 
-    <!-- Rechterkolom: mijn hobby's -->
+    <!-- Rechterkolom -->
     <div class="rechts">
 
-      <h2 id="hobbys">Hobby's</h2>
+      <h2>Hobby's</h2>
 
       <div class="informatie">
         <ul>
-          <li>Ik hou van muziek</li>
-          <li>Ik hou van sporten</li>
-          <li>Ik studeer graag</li>
+          <li>Ik hou van muziek.</li>
+          <li>Ik hou van sporten.</li>
+          <li>Ik studeer graag.</li>
         </ul>
+      </div>
+
+      <h2>Wat leer je op deze website?</h2>
+
+      <div class="informatie">
+        <ul>
+          <li>Hoe een computer gegevens verwerkt.</li>
+          <li>Hoe het binaire stelsel werkt.</li>
+          <li>Hoe computers kleuren weergeven.</li>
+          <li>Hoe bestanden kleiner worden gemaakt met compressie.</li>
+          <li>Wat kunstmatige intelligentie is.</li>
+        </ul>
+      </div>
+
+      <h2>Mijn doelen</h2>
+
+      <div class="informatie">
+        <p>
+          Mijn doel is om meer te leren over informatica en beter te
+          begrijpen hoe digitale technologie werkt. Ook wil ik leren
+          hoe ik zelf een duidelijke en goed werkende website kan maken.
+        </p>
       </div>
 
     </div>
 
   </div>
 
-  <!-- Onderkant van de pagina: contact en gemaakt door -->
+  <!-- Footer -->
   <footer id="contact">
     <p>
       <b>Contact:</b> mail me op
