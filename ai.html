@@ -1,1 +1,383 @@
 
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Kunstmatige intelligentie</title>
+
+<!-- Hier staat de opmaak van mijn pagina -->
+  <style>
+    body {
+      font-family: arial, sans-serif;
+      background-color: lightyellow;
+      margin: 20px;
+      line-height: 1.5;
+      padding-bottom: 130px; /* ruimte voor de vaste footer */
+    }
+
+    h1 {
+      color: darkblue;
+    }
+
+    h2 {
+      color: darkred;
+    }
+
+    h3 {
+      color: darkblue;
+    }
+
+    /* Dropdown-menu */
+    .third-level-menu
+    {
+        position: absolute;
+        top: 0;
+        right: -150px;
+        width: 150px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: none;
+    }
+
+    .third-level-menu > li
+    {
+        height: 30px;
+        width: 80px;
+        background: #999999;
+    }
+    .third-level-menu > li:hover { background: #CCCCCC; }
+
+    .second-level-menu
+    {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        width: 260px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: none;
+        z-index: 1000;
+    }
+
+    .second-level-menu > li
+    {
+        position: relative;
+        min-height: 30px;
+        background: #999999;
+    }
+    .second-level-menu > li:hover { background: #CCCCCC; }
+
+    .top-level-menu
+    {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .top-level-menu::after
+    {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .top-level-menu > li
+    {
+        position: relative;
+        float: left;
+        height: 30px;
+        width: 150px;
+        background: #999999;
+    }
+    .top-level-menu > li:hover { background: #CCCCCC; }
+
+    .top-level-menu li:hover > ul
+    {
+        /* Bij hover wordt het volgende menu zichtbaar */
+        display: block;
+    }
+
+    /* Opmaak van de links in het menu */
+    .top-level-menu a
+    {
+        font: bold 14px Arial, Helvetica, sans-serif;
+        color: #FFFFFF;
+        text-decoration: none;
+        padding: 0 0 0 10px;
+        display: block;
+        line-height: 30px;
+    }
+    .top-level-menu a:hover { color: #000000; }
+
+    /* Opmaak van de afbeelding */
+    .foto {
+      width: 300px;
+      max-width: 100%;
+      border: 3px solid darkblue;
+    }
+
+    /* Opmaak van de informatieblokken */
+    .informatie {
+      background-color: white;
+      border-left: 4px solid darkblue;
+      padding: 10px;
+      margin: 15px 0;
+    }
+
+    /* Opmaak van de tabel */
+    table {
+      border-collapse: collapse;
+      background-color: white;
+      margin: 10px 0;
+    }
+
+    th, td {
+      border: 1px solid gray;
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: darkblue;
+      color: white;
+    }
+
+    /* Opmaak van de YouTube-video */
+    iframe {
+      max-width: 100%;
+    }
+
+    /* Voettekst */
+    footer {
+      position: fixed; /* Voettekst blijft onderaan de pagina */
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #1B3B2B;
+      text-align: center;
+      padding: 20px 0;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    /* Stijl voor links in de voettekst */
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    /* Hover-effect voor links in de voettekst */
+    footer a:hover {
+      color: #ddd;
+    }
+
+    /* Opmaak aanpassen voor kleine schermen */
+    @media (max-width: 600px) {
+      iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Bovenkant van de pagina -->
+  <h1>Mijn Website</h1>
+
+  <!-- Dropdown-menu met links naar de andere pagina's -->
+  <nav>
+    <ul class="top-level-menu">
+      <li>
+        <a href="#">Menu ▾</a>
+        <ul class="second-level-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="invoer-verwerking-uitvoer.html">Invoer, verwerking, uitvoer</a></li>
+          <li><a href="binairstelsel.html">Binairstelsel</a></li>
+          <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+          <li><a href="compressie.html">Compressie</a></li>
+          <li><a href="ai.html">Kunstmatige intelligentie</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <hr>
+
+  <!-- Uitleg over kunstmatige intelligentie -->
+  <h2>Kunstmatige intelligentie (AI)</h2>
+
+  <p>
+    AI staat voor Artificial Intelligence, oftewel kunstmatige intelligentie.
+    Dit is technologie waarmee computers taken kunnen uitvoeren waarvoor
+    normaal gesproken menselijke intelligentie nodig is. Voorbeelden zijn
+    het herkennen van afbeeldingen, het begrijpen van taal en het beantwoorden
+    van vragen.
+  </p>
+
+  <p>
+    Een bekend voorbeeld van AI is ChatGPT. Je kunt hiermee vragen stellen,
+    teksten laten uitleggen en ideeën bedenken. AI kan handig zijn, maar
+    geeft niet altijd juiste informatie. Daarom moet je antwoorden controleren.
+  </p>
+
+  <!-- Plek voor een afbeelding over AI -->
+  <img src="ai.jpg" alt="Afbeelding over kunstmatige intelligentie" class="foto">
+
+  <!-- Hoe werkt AI? -->
+  <h3>Hoe werkt AI?</h3>
+
+  <p>
+    Veel AI-systemen worden getraind met grote hoeveelheden gegevens.
+    Hierdoor leren ze patronen herkennen. Een AI-systeem kan die patronen
+    vervolgens gebruiken om bijvoorbeeld een vraag te beantwoorden of
+    een afbeelding te herkennen.
+  </p>
+
+  <div class="informatie">
+    <h3>Voorbeeld</h3>
+    <p>
+      Als je een chatbot een vraag stelt, verwerkt het systeem je tekst
+      en maakt het een antwoord. Dat antwoord klinkt soms alsof een mens
+      het heeft geschreven, maar het kan fouten bevatten.
+    </p>
+  </div>
+
+  <!-- Mijn eigen gebruik van AI -->
+  <h2>Waar gebruik ik zelf AI voor?</h2>
+
+  <p>
+    Ik kan AI gebruiken als hulpmiddel bij het leren. Als ik een onderwerp
+    niet begrijp, kan ik vragen om een eenvoudigere uitleg of een extra
+    voorbeeld. Ook kan AI helpen om ideeën te bedenken of mijn eigen tekst
+    te controleren.
+  </p>
+
+  <p>
+    Ik vind het belangrijk om de antwoorden zelf te controleren en te
+    begrijpen. Als je AI al het werk laat doen, leer je mogelijk minder
+    van de opdracht.
+  </p>
+
+  <div class="informatie">
+    <h3>Mijn ervaring met AI</h3>
+    <p>
+      Ik gebruik AI vooral voor
+      <b>samenvattingen maken van grote teksten en voor uitleg bij moeilijke onderwerpen</b>.
+      Ik leer hiervan doordat
+      <b>ik de stof sneller begrijp en op een efficiëntere manier kan leren</b>.
+    </p>
+  </div>
+
+  <!-- AI op mijn telefoon -->
+  <h2>AI op mijn mobiele telefoon</h2>
+
+  <p>
+    AI wordt ook gebruikt op mobiele telefoons. Voorbeelden zijn
+    spraakassistenten, gezichtsherkenning, tekstsuggesties en het
+    verbeteren van foto's. Welke functies beschikbaar zijn, hangt af
+    van het merk, het model en de software van de telefoon.
+  </p>
+
+  <div class="informatie">
+    <h3>Mijn telefoon</h3>
+    <p>
+      Ik heb een <b>Iphone 13</b>. 
+      Een AI-functie op mijn telefoon is
+      <b>Gezichtsherkenning (Face ID)</b>.
+      Ik vind deze functie handig omdat
+      <b>ik mijn telefoon snel en veilig kan ontgrendelen zonder een wachtwoord in te typen</b>.
+    </p>
+  </div>
+
+  <!-- Artikel over AI -->
+  <h2>Artikel over AI</h2>
+
+  <p>
+    Ik heb een artikel van NOS Nieuws gekozen over het gebruik van AI
+    op middelbare scholen:
+    <a href="https://nos.nl/artikel/2562959-middelbare-scholen-passen-schoolopdrachten-aan-om-ai-gebruik-tegen-te-gaan"
+       target="_blank"
+       rel="noopener noreferrer">
+      Middelbare scholen passen schoolopdrachten aan om AI-gebruik
+      tegen te gaan
+    </a>.
+  </p>
+
+  <h3>Samenvatting van het artikel</h3>
+
+  <p>
+    Het artikel gaat over middelbare scholen die hun opdrachten aanpassen
+    omdat leerlingen AI gebruiken bij schoolwerk. Scholen willen beter
+    kunnen controleren of leerlingen de stof zelf begrijpen. Daarom
+    kunnen ze bijvoorbeeld opdrachten in de klas laten maken of leerlingen
+    mondeling vragen stellen.
+  </p>
+
+  <p>
+    AI kan leerlingen helpen om iets beter te begrijpen, maar er ontstaat
+    een probleem wanneer leerlingen complete opdrachten door AI laten
+    maken en die inleveren alsof ze alles zelf hebben geschreven.
+  </p>
+
+  <h3>Mijn mening over het artikel</h3>
+
+  <p>
+    Ik vind dat AI handig kan zijn bij schoolwerk, bijvoorbeeld als je
+    extra uitleg nodig hebt. Je kunt op die manier in je eigen tempo leren.
+    Ik vind het minder goed als leerlingen AI alles laten maken, omdat
+    ze dan minder zelf oefenen en mogelijk niet begrijpen wat ze inleveren.
+  </p>
+
+  <p>
+    Daarom vind ik dat je AI vooral als hulpmiddel moet gebruiken.
+    Je moet zelf blijven nadenken en controleren of de informatie klopt.
+  </p>
+
+  <!-- Video over kunstmatige intelligentie -->
+  <h2>Video over AI</h2>
+
+  <p>
+    Hieronder komt een korte YouTube-video over kunstmatige intelligentie.
+    Ik heb deze video gekozen omdat hij extra uitleg geeft over hoe AI
+    werkt en hoe AI in het dagelijks leven wordt gebruikt.
+  </p>
+
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/ad79nYk2keg"
+    width="560"
+    height="315"
+    title="Uitlegvideo over kunstmatige intelligentie"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+
+  <p>
+  Ik heb deze video toegevoegd omdat op een duidelijke en eenvoudige manier wordt uitgelegd
+  wat kunstmatige intelligentie (AI) is. 
+  Door deze video heb ik geleerd dat AI patronen kan herkennen
+  in gegevens en op basis daarvan keuzes of voorspellingen kan maken.
+  Ook heb ik geleerd dat AI wordt gebruikt in veel toepassingen die ik dagelijks gebruik, zoals zoekmachines en smartphones.
+  </p>
+
+  <!-- Onderkant van de pagina: contact en gemaakt door -->
+  <footer id="contact">
+    <p><b>Contact:</b> mail me op
+      <a href="mailto:Mischa.van.der.veen@vlietlandcollege.nl">
+        Mischa.van.der.veen@vlietlandcollege.nl
+      </a>
+    </p>
+    <p>Gemaakt door Mischa van der Veen - 2026</p>
+  </footer>
+
+</body>
+</html>
