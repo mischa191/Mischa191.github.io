@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
   <title>Binairstelsel</title>
-<!--Hier staat de opmaak van mijn pagina-->
+
+  <!-- Hier staat de opmaak van mijn pagina -->
   <style>
     body {
       font-family: arial, sans-serif;
@@ -26,95 +28,113 @@
     }
 
     /* Dropdown-menu */
-    .third-level-menu
-    {
-        position: absolute;
-        top: 0;
-        right: -150px;
-        width: 150px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: none;
+    .third-level-menu {
+      position: absolute;
+      top: 0;
+      right: -150px;
+      width: 150px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: none;
     }
 
-    .third-level-menu > li
-    {
-        height: 30px;
-        width: 80px;
-        background: #999999;
-    }
-    .third-level-menu > li:hover { background: #CCCCCC; }
-
-    .second-level-menu
-    {
-        position: absolute;
-        top: 30px;
-        left: 0;
-        width: 150px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: none;
+    .third-level-menu > li {
+      height: 30px;
+      width: 80px;
+      background: #999999;
     }
 
-    .second-level-menu > li
-    {
-        position: relative;
-        height: 30px;
-        background: #999999;
-    }
-    .second-level-menu > li:hover { background: #CCCCCC; }
-
-    .top-level-menu
-    {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+    .third-level-menu > li:hover {
+      background: #CCCCCC;
     }
 
-    .top-level-menu::after
-    {
-        content: "";
-        display: table;
-        clear: both;
+    .second-level-menu {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      width: 260px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: none;
+      z-index: 1000;
     }
 
-    .top-level-menu > li
-    {
-        position: relative;
-        float: left;
-        height: 30px;
-        width: 150px;
-        background: #999999;
-    }
-    .top-level-menu > li:hover { background: #CCCCCC; }
-
-    .top-level-menu li:hover > ul
-    {
-        /* On hover, display the next level's menu */
-        display: inline;
+    .second-level-menu > li {
+      position: relative;
+      min-height: 30px;
+      background: #999999;
     }
 
-    /* Menu Link Styles */
-    .top-level-menu a
-    {
-        font: bold 14px Arial, Helvetica, sans-serif;
-        color: #FFFFFF;
-        text-decoration: none;
-        padding: 0 0 0 10px;
-
-        /* Make the link cover the entire list item-container */
-        display: block;
-        line-height: 30px;
+    .second-level-menu > li:hover {
+      background: #CCCCCC;
     }
-    .top-level-menu a:hover { color: #000000; }
 
-    /* Tabel */
+    .top-level-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .top-level-menu::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .top-level-menu > li {
+      position: relative;
+      float: left;
+      height: 30px;
+      width: 150px;
+      background: #999999;
+    }
+
+    .top-level-menu > li:hover {
+      background: #CCCCCC;
+    }
+
+    .top-level-menu li:hover > ul {
+      /* Bij hover wordt het volgende menu zichtbaar */
+      display: block;
+    }
+
+    /* Opmaak van de links in het menu */
+    .top-level-menu a {
+      font: bold 14px Arial, Helvetica, sans-serif;
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 0 0 0 10px;
+      display: block;
+      line-height: 30px;
+    }
+
+    .top-level-menu a:hover {
+      color: #000000;
+    }
+
+    /* Opmaak van de informatieblokken */
+    .informatie {
+      background-color: white;
+      border-left: 4px solid darkblue;
+      padding: 10px;
+      margin: 15px 0;
+    }
+
+    /* Opmaak van de afbeelding */
+    .foto {
+      width: 300px;
+      max-width: 100%;
+      border: 3px solid darkblue;
+    }
+
+    /* Opmaak van de tabel */
     table {
       border-collapse: collapse;
       background-color: white;
       margin: 10px 0;
+      max-width: 100%;
     }
 
     th, td {
@@ -123,25 +143,29 @@
       text-align: center;
     }
 
-    /* Foto */
-    .foto {
-      width: 250px;
+    th {
+      background-color: darkblue;
+      color: white;
+    }
+
+    /* Opmaak van de game */
+    iframe {
       max-width: 100%;
       border: 3px solid darkblue;
     }
 
     /* Voettekst */
     footer {
-      position: fixed; /* Voettekst blijft onderaan de pagina, zelfs bij scrollen */
-      bottom: 0; /* Plaatst de voettekst onderaan */
-      left: 0; /* Plaatst de voettekst aan de linkerkant */
-      width: 100%; /* Voettekst beslaat de volledige breedte */
-      background-color: #1B3B2B; /* Achtergrondkleur van de voettekst */
-      text-align: center; /* Centreert de tekst in de voettekst */
-      padding: 20px 0; /* Opvulling boven en onder in de voettekst */
-      color: white; /* Kleur van de tekst in de voettekst */
-      font-family: Arial, sans-serif; /* Lettertype voor de tekst */
-      font-size: 16px; /* Grootte van de tekst */
+      position: fixed; /* Voettekst blijft onderaan de pagina */
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #1B3B2B;
+      text-align: center;
+      padding: 20px 0;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
     }
 
     footer p {
@@ -150,78 +174,152 @@
 
     /* Stijl voor links in de voettekst */
     footer a {
-      color: white; /* Kleur van de links in de voettekst */
-      text-decoration: underline; /* Onderstreping voor de links in de voettekst */
+      color: white;
+      text-decoration: underline;
     }
 
-    /* Hover-effect voor links in de voettekst */
     footer a:hover {
-      color: #ddd; /* Kleur voor links in de voettekst bij hover */
+      color: #ddd;
+    }
+
+    /* Opmaak aanpassen voor kleine schermen */
+    @media (max-width: 600px) {
+      iframe {
+        width: 100%;
+        height: 400px;
+      }
+
+      table {
+        font-size: 14px;
+      }
+
+      th, td {
+        padding: 6px;
+      }
     }
   </style>
 </head>
+
 <body>
 
+  <!-- Bovenkant van de pagina -->
   <h1>Mijn Website</h1>
 
-<!-- Dropdown-menu met links naar de andere paginas -->
-<nav>
-  <ul class="top-level-menu">
-    <li>
-      <a href="#">Menu ▾</a>
-      <ul class="second-level-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="invoer-verwerking-uitvoer.html">Invoer, verwerking, uitvoer</a></li>
-        <li><a href="binairstelsel.html">Binairstelsel</a></li>
-        <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
-        <li><a href="compressie.html">Compressie</a></li>
-        <li><a href="ai.html">Kunstmatige intelligentie</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+  <!-- Dropdown-menu met links naar de andere pagina's -->
+  <nav>
+    <ul class="top-level-menu">
+      <li>
+        <a href="#">Menu ▾</a>
+        <ul class="second-level-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="invoer-verwerking-uitvoer.html">Invoer, verwerking, uitvoer</a></li>
+          <li><a href="binairstelsel.html">Binairstelsel</a></li>
+          <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+          <li><a href="compressie.html">Compressie</a></li>
+          <li><a href="ai.html">Kunstmatige intelligentie</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
 
   <hr>
 
+  <!-- Uitleg over het binaire stelsel -->
   <h2>Binairstelsel</h2>
-  <p>
-    Het binaire stelsel is een manier om getallen weer te geven met maar twee cijfers:
-    0 en 1. Dit heet ook wel het base-2 systeem. In het gewone decimale stelsel gebruiken we
-    de cijfers 0 tot en met 9.
-  </p>
 
-<!-- Plek voor een foto -->
-  <img src="binair.jpg" alt="Foto bij het binaire stelsel" class="foto">
+  <div class="informatie">
+    <p>
+      Het binaire stelsel is een manier om getallen weer te geven met maar
+      twee cijfers: 0 en 1. Dit heet ook wel het base-2-systeem.
+      In het gewone decimale stelsel gebruiken we de cijfers 0 tot en met 9.
+    </p>
+  </div>
 
+  <!-- Plek voor een afbeelding over het binaire stelsel -->
+  <img src="binair.jpg"
+       alt="Afbeelding bij het binaire stelsel"
+       class="foto">
+
+  <!-- Uitleg over de werking van het binaire stelsel -->
   <h3>Hoe werkt het?</h3>
-  <p>
-    Elke positie in een binair getal is een macht van 2, net zoals elke positie in een
-    decimaal getal een macht van 10 is. Van rechts naar links zijn de waarden:
-  </p>
+
+  <div class="informatie">
+    <p>
+      Elke positie in een binair getal is een macht van 2, net zoals elke
+      positie in een decimaal getal een macht van 10 is. Van rechts naar
+      links zijn de waarden:
+    </p>
+  </div>
+
+  <!-- Tabel met de waarden van de posities -->
   <table>
     <tr>
-      <td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td>
+      <th>32</th>
+      <th>16</th>
+      <th>8</th>
+      <th>4</th>
+      <th>2</th>
+      <th>1</th>
+    </tr>
+    <tr>
+      <td>2⁵</td>
+      <td>2⁴</td>
+      <td>2³</td>
+      <td>2²</td>
+      <td>2¹</td>
+      <td>2⁰</td>
     </tr>
   </table>
 
+  <!-- Voorbeeld van een binair getal -->
   <h3>Voorbeeld: 101</h3>
-  <p>
-    Rechts staat een 1 (waarde 1), in het midden een 0 (waarde 2, telt niet mee) en links
-    een 1 (waarde 4). Optellen: 4 + 0 + 1 = 5. Dus het binaire getal 101 is 5 in het
-    decimale stelsel.
-  </p>
 
+  <div class="informatie">
+    <p>
+      Rechts staat een 1 met waarde 1. In het midden staat een 0 met
+      waarde 2, die niet meetelt. Links staat een 1 met waarde 4.
+    </p>
+
+    <p>
+      We tellen de waarden van de posities met een 1 bij elkaar op:
+    </p>
+
+    <p><b>4 + 0 + 1 = 5</b></p>
+
+    <p>
+      Dus het binaire getal 101 is gelijk aan 5 in het decimale stelsel.
+    </p>
+  </div>
+
+  <!-- Uitleg over Binary Bonanza -->
   <h3>Binary Bonanza</h3>
-  <p>
-    Wil je oefenen met het binaire stelsel? Speel dan het spel hieronder!
-  </p>
 
-<!-- Het spel Binary Bonanza -->
-  <iframe src="https://games.penjee.com/binary-bonanza/game.php" width="700" height="500" frameborder="no" scrolling="no"></iframe>
+  <div class="informatie">
+    <p>
+      Wil je oefenen met het binaire stelsel? Speel dan het spel hieronder!
+      Met Binary Bonanza kun je oefenen met het omzetten van binaire getallen.
+    </p>
+  </div>
 
-<!-- Onderkant van de pagina: contact en gemaakt door -->
+  <!-- Het spel Binary Bonanza -->
+  <iframe
+    src="https://games.penjee.com/binary-bonanza/game.php"
+    width="700"
+    height="500"
+    title="Binary Bonanza: oefenen met binaire getallen"
+    frameborder="0"
+    scrolling="no">
+  </iframe>
+
+  <!-- Onderkant van de pagina: contact en gemaakt door -->
   <footer id="contact">
-    <p><b>Contact:</b> mail me op <a href="mailto:Mischa.van.der.veen@vlietlandcollege.nl">Mischa.van.der.veen@vlietlandcollege.nl</a></p>
+    <p>
+      <b>Contact:</b> mail me op
+      <a href="mailto:Mischa.van.der.veen@vlietlandcollege.nl">
+        Mischa.van.der.veen@vlietlandcollege.nl
+      </a>
+    </p>
+
     <p>Gemaakt door Mischa van der Veen - 2026</p>
   </footer>
 
