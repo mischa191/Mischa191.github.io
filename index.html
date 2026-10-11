@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <title>Mijn Voorpagina</title>
 
-<!-- Hier staat de opmaak van de pagina -->
+  <!-- Hier staat de opmaak van mijn pagina -->
   <style>
     body {
       font-family: arial, sans-serif;
       background-color: lightyellow;
       margin: 20px;
+      line-height: 1.5;
       padding-bottom: 130px; /* ruimte voor de vaste footer */
     }
 
@@ -21,96 +22,103 @@
       color: darkred;
     }
 
+    h3 {
+      color: darkblue;
+    }
+
     /* Dropdown-menu */
-    .third-level-menu
-    {
-        position: absolute;
-        top: 0;
-        right: -150px;
-        width: 150px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: none;
+    .third-level-menu {
+      position: absolute;
+      top: 0;
+      right: -150px;
+      width: 150px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: none;
     }
 
-    .third-level-menu > li
-    {
-        height: 30px;
-        width: 80px;
-        background: #999999;
-    }
-    .third-level-menu > li:hover { background: #CCCCCC; }
-
-    .second-level-menu
-    {
-        position: absolute;
-        top: 30px;
-        left: 0;
-        width: 150px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: none;
+    .third-level-menu > li {
+      height: 30px;
+      width: 80px;
+      background: #999999;
     }
 
-    .second-level-menu > li
-    {
-        position: relative;
-        height: 30px;
-        background: #999999;
-    }
-    .second-level-menu > li:hover { background: #CCCCCC; }
-
-    .top-level-menu
-    {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+    .third-level-menu > li:hover {
+      background: #CCCCCC;
     }
 
-    .top-level-menu::after
-    {
-        content: "";
-        display: table;
-        clear: both;
+    .second-level-menu {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      width: 260px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: none;
+      z-index: 1000;
     }
 
-    .top-level-menu > li
-    {
-        position: relative;
-        float: left;
-        height: 30px;
-        width: 150px;
-        background: #999999;
-    }
-    .top-level-menu > li:hover { background: #CCCCCC; }
-
-    .top-level-menu li:hover > ul
-    {
-        /* On hover, display the next level's menu */
-        display: inline;
+    .second-level-menu > li {
+      position: relative;
+      min-height: 30px;
+      background: #999999;
     }
 
-    /* Menu Link Styles */
-    .top-level-menu a
-    {
-        font: bold 14px Arial, Helvetica, sans-serif;
-        color: #FFFFFF;
-        text-decoration: none;
-        padding: 0 0 0 10px;
-
-        /* Make the link cover the entire list item-container */
-        display: block;
-        line-height: 30px;
+    .second-level-menu > li:hover {
+      background: #CCCCCC;
     }
-    .top-level-menu a:hover { color: #000000; }
 
-    /* Twee kolommen: links de tekst, rechts de hobby's */
+    .top-level-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .top-level-menu::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .top-level-menu > li {
+      position: relative;
+      float: left;
+      height: 30px;
+      width: 150px;
+      background: #999999;
+    }
+
+    .top-level-menu > li:hover {
+      background: #CCCCCC;
+    }
+
+    .top-level-menu li:hover > ul {
+      /* Bij hover wordt het volgende menu zichtbaar */
+      display: block;
+    }
+
+    /* Opmaak van de links in het menu */
+    .top-level-menu a {
+      font: bold 14px Arial, Helvetica, sans-serif;
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 0 0 0 10px;
+      display: block;
+      line-height: 30px;
+    }
+
+    .top-level-menu a:hover {
+      color: #000000;
+    }
+
+    /* Twee kolommen: links over mij en rechts mijn hobby's */
     .kolommen {
       display: flex;
       justify-content: space-between;
       gap: 40px;
+      margin-top: 20px;
     }
 
     .links {
@@ -121,25 +129,33 @@
       flex: 1;
     }
 
-    /* Plek voor de foto */
+    /* Opmaak van de foto */
     .foto {
-      width: 250px;
+      width: 300px;
       max-width: 100%;
       border: 3px solid darkblue;
     }
 
+    /* Opmaak van het informatieblok */
+    .informatie {
+      background-color: white;
+      border-left: 4px solid darkblue;
+      padding: 10px;
+      margin: 15px 0;
+    }
+
     /* Voettekst */
     footer {
-      position: fixed; /* Voettekst blijft onderaan de pagina, zelfs bij scrollen */
-      bottom: 0; /* Plaatst de voettekst onderaan */
-      left: 0; /* Plaatst de voettekst aan de linkerkant */
-      width: 100%; /* Voettekst beslaat de volledige breedte */
-      background-color: #1B3B2B; /* Achtergrondkleur van de voettekst */
-      text-align: center; /* Centreert de tekst in de voettekst */
-      padding: 20px 0; /* Opvulling boven en onder in de voettekst */
-      color: white; /* Kleur van de tekst in de voettekst */
-      font-family: Arial, sans-serif; /* Lettertype voor de tekst */
-      font-size: 16px; /* Grootte van de tekst */
+      position: fixed; /* Voettekst blijft onderaan de pagina */
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #1B3B2B;
+      text-align: center;
+      padding: 20px 0;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
     }
 
     footer p {
@@ -148,76 +164,100 @@
 
     /* Stijl voor links in de voettekst */
     footer a {
-      color: white; /* Kleur van de links in de voettekst */
-      text-decoration: underline; /* Onderstreping voor de links in de voettekst */
+      color: white;
+      text-decoration: underline;
     }
 
-    /* Hover-effect voor links in de voettekst */
     footer a:hover {
-      color: #ddd; /* Kleur voor links in de voettekst bij hover */
+      color: #ddd;
+    }
+
+    /* Opmaak aanpassen voor kleine schermen */
+    @media (max-width: 600px) {
+      .kolommen {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .second-level-menu {
+        width: 260px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- Bovenkant van de pagina -->
+  <!-- Bovenkant van de pagina -->
   <h1>Mijn Website</h1>
-  <p> Welkom op mijn voorpagina!</p>
 
-<!-- Dropdown-menu met links naar de andere paginas -->
-<nav>
-  <ul class="top-level-menu">
-    <li>
-      <a href="#">Menu ▾</a>
-      <ul class="second-level-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="invoer-verwerking-uitvoer.html">Invoer, verwerking, uitvoer</a></li>
-        <li><a href="binairstelsel.html">Binairstelsel</a></li>
-        <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
-        <li><a href="compressie.html">Compressie</a></li>
-        <li><a href="ai.html">Kunstmatige intelligentie</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+  <p>Welkom op mijn voorpagina!</p>
 
+  <!-- Dropdown-menu met links naar de andere pagina's -->
+  <nav>
+    <ul class="top-level-menu">
+      <li>
+        <a href="#">Menu ▾</a>
+        <ul class="second-level-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="invoer-verwerking-uitvoer.html">Invoer, verwerking, uitvoer</a></li>
+          <li><a href="binairstelsel.html">Binairstelsel</a></li>
+          <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+          <li><a href="compressie.html">Compressie</a></li>
+          <li><a href="ai.html">Kunstmatige intelligentie</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
 
   <hr>
 
+  <!-- Twee kolommen met informatie over mij en mijn hobby's -->
   <div class="kolommen">
 
-    <!-- Linkerkolom -->
+    <!-- Linkerkolom: over mij -->
     <div class="links">
 
-<!-- Sectie: Over mij -->
       <h2 id="over-mij">Over mij</h2>
-      <p>
-        Ik ben Mischa en ik zit in vwo 5. Deze pagina is gemaakt voor het vak informatica.
-      </p>
 
-<!-- Plek voor een foto -->
+      <div class="informatie">
+        <p>
+          Ik ben Mischa en ik zit in vwo 5. Deze pagina is gemaakt
+          voor het vak informatica.
+        </p>
+      </div>
+
+      <!-- Plek voor mijn eigen foto -->
       <img src="foto.jpg" alt="Foto van Mischa" class="foto">
 
     </div>
 
-    <!-- Rechterkolom -->
+    <!-- Rechterkolom: mijn hobby's -->
     <div class="rechts">
 
-<!-- Sectie: Hobby's -->
       <h2 id="hobbys">Hobby's</h2>
-      <ul>
-        <li>Ik hou van muziek</li>
-        <li>Ik hou van sporten</li>
-        <li>Ik studeer graag</li>
-      </ul>
+
+      <div class="informatie">
+        <ul>
+          <li>Ik hou van muziek</li>
+          <li>Ik hou van sporten</li>
+          <li>Ik studeer graag</li>
+        </ul>
+      </div>
 
     </div>
 
   </div>
 
-<!-- Onderkant van de pagina: contact en gemaakt door -->
+  <!-- Onderkant van de pagina: contact en gemaakt door -->
   <footer id="contact">
-    <p><b>Contact:</b> mail me op <a href="mailto:Mischa.van.der.veen@vlietlandcollege.nl">Mischa.van.der.veen@vlietlandcollege.nl</a></p>
+    <p>
+      <b>Contact:</b> mail me op
+      <a href="mailto:Mischa.van.der.veen@vlietlandcollege.nl">
+        Mischa.van.der.veen@vlietlandcollege.nl
+      </a>
+    </p>
+
     <p>Gemaakt door Mischa van der Veen - 2026</p>
   </footer>
 
